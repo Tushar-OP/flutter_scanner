@@ -1,9 +1,11 @@
+import 'dart:io';
 import 'package:doc_scanner/licenseKey.dart';
 import 'package:doc_scanner/screens/camera.dart';
 import 'package:doc_scanner/screens/gallery.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_genius_scan/flutter_genius_scan.dart';
+import 'screens/CameraPreview.dart';
 
 void main() {
   runApp(MyApp());
@@ -61,17 +63,24 @@ class _MyHomeState extends State<MyHome> {
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(40.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
-              child: Gallery(),
+                child: CameraScreen(),
             ),
-            Expanded(
-              child: Camera(),
-            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Gallery(),
+                ),
+                Expanded(
+                  child: Camera(),
+                ),
+              ],
+            )
           ],
         ),
       ),
